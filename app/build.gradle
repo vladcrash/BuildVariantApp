@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+    defaultConfig {
+        applicationId "ru.tinkoff.school.buildvariantapp"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        prodDebug {
+            storeFile file("prod-debug.jks")
+            storePassword "password"
+            keyAlias "prod-debug-key"
+            keyPassword "password"
+        }
+
+        release {
+            storeFile file("my-release-key.jks")
+            storePassword "password"
+            keyAlias "my-super-puper-key"
+            keyPassword "password"
+        }
+    }
+
+    buildTypes {
+        debug {
+        }
+        prodDebug {
+            minifyEnabled true
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            signingConfig signingConfigs.prodDebug
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    flavorDimensions "text", "textSize"
+
+    productFlavors {
+        usual {
+            dimension "text"
+        }
+
+        unusual {
+            dimension "text"
+        }
+
+        small {
+            dimension "textSize"
+        }
+
+        medium {
+            dimension "textSize"
+        }
+
+        large {
+            dimension "textSize"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
