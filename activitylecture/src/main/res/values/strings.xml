@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ActivityLecture</string>
+    <string name="find_out">and what\'s your?</string>
+    <string name="introduce_yourself">What\'s your name?</string>
+    <string name="become_famous">Tell to everyone who I am</string>
+    <string name="welcome">Hello %1$s, my name is Daniil Ishutin. Nice to meet you!</string>
+    <string name="where_is_my_fame">My name is %1$s. Am I already very popular?</string>
+    <string name="ok">nice to meet you too!</string>
+    <string name="cancel">fuck off!</string>
+    <string name="cute">oh, you are so cute</string>
+    <string name="rude">oh, you are so rude, son of a bitch</string>
 </resources>
